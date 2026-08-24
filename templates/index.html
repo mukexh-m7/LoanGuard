@@ -1,0 +1,665 @@
+{% extends "base.html" %}
+
+{% block title %}
+LoanGuard - ML Based Loan Default Prediction
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            MACHINE LEARNING RISK ASSESSMENT
+        </div>
+
+        <h1>
+            Smarter Loan Decisions
+            <span>Powered by Machine Learning.</span>
+        </h1>
+
+        <p class="hero-description">
+            LoanGuard analyzes customer and loan information using
+            a trained Machine Learning classification model to
+            estimate the likelihood of loan default.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="#prediction-form" class="btn btn-primary">
+                Start Prediction
+                <span>→</span>
+            </a>
+
+            <a href="/how-it-works" class="btn btn-secondary">
+                Explore How It Works
+            </a>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div class="hero-stat">
+                <strong>20K+</strong>
+                <span>Loan Records</span>
+            </div>
+
+            <div class="hero-stat">
+                <strong>9</strong>
+                <span>ML Features</span>
+            </div>
+
+            <div class="hero-stat">
+                <strong>DT</strong>
+                <span>Classifier</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MACHINE LEARNING MODEL VISUAL -->
+
+    <div class="hero-visual">
+
+        <div class="model-preview-card">
+
+            <div class="model-preview-header">
+
+                <div>
+                    <span class="preview-label">
+                        PREDICTION ENGINE
+                    </span>
+
+                    <h3>
+                        Machine Learning Model
+                    </h3>
+                </div>
+
+                <div class="model-status">
+                    <span></span>
+                    Ready
+                </div>
+
+            </div>
+
+
+            <div class="model-flow">
+
+                <div class="model-node">
+
+                    <div class="model-node-icon">
+                        👤
+                    </div>
+
+                    <span>
+                        Customer
+                        Data
+                    </span>
+
+                </div>
+
+
+                <div class="model-arrow">
+                    →
+                </div>
+
+
+                <div class="model-node active">
+
+                    <div class="model-node-icon">
+                        ✦
+                    </div>
+
+                    <span>
+                        Decision
+                        Tree
+                    </span>
+
+                </div>
+
+
+                <div class="model-arrow">
+                    →
+                </div>
+
+
+                <div class="model-node">
+
+                    <div class="model-node-icon">
+                        ✓
+                    </div>
+
+                    <span>
+                        Risk
+                        Class
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="model-info">
+
+                <div>
+                    <span>Algorithm</span>
+                    <strong>Decision Tree</strong>
+                </div>
+
+                <div>
+                    <span>Task</span>
+                    <strong>Classification</strong>
+                </div>
+
+            </div>
+
+
+            <div class="model-note">
+
+                <span>✓</span>
+
+                <p>
+                    Trained model ready to evaluate
+                    loan applications.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PREDICTION FORM ================= -->
+
+<section class="prediction-section" id="prediction-form">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                LOAN ASSESSMENT
+            </span>
+
+            <h2>
+                Evaluate a Loan Application
+            </h2>
+
+            <p>
+                Enter the applicant information below.
+                LoanGuard will process the submitted features
+                and generate a Machine Learning prediction.
+            </p>
+
+        </div>
+
+
+        <div class="model-badge">
+
+            <span class="model-badge-icon">
+                ✦
+            </span>
+
+            <div>
+                <strong>Decision Tree</strong>
+                <small>Classification Model</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <form
+        method="POST"
+        class="prediction-form"
+        id="predictionForm"
+        novalidate>
+
+
+        <!-- CUSTOMER INFORMATION -->
+
+        <div class="form-card">
+
+            <div class="form-card-header">
+
+                <div class="form-section-icon">
+                    👤
+                </div>
+
+                <div>
+                    <h3>
+                        Customer Information
+                    </h3>
+
+                    <p>
+                        Basic applicant characteristics
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <!-- GENDER -->
+
+                <div class="form-group">
+
+                    <label for="gender">
+                        Gender
+                    </label>
+
+                    <select
+                        id="gender"
+                        name="gender"
+                        required>
+
+                        <option value="" selected disabled>
+                            Select gender
+                        </option>
+
+                        <!--
+                            IMPORTANT:
+                            Make sure these values match
+                            your model's training encoding.
+                        -->
+
+                        <option value="0">
+                            Male
+                        </option>
+
+                        <option value="1">
+                            Female
+                        </option>
+
+                    </select>
+
+                    <small>
+                        Select the applicant's gender.
+                    </small>
+
+                    <span class="input-error"
+                          id="genderError">
+                    </span>
+
+                </div>
+
+
+                <!-- AGE -->
+
+                <div class="form-group">
+
+                    <label for="age">
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        placeholder="e.g. 32"
+                        min="1"
+                        step="1"
+                        inputmode="numeric"
+                        required>
+
+                    <small>
+                        Enter age as a positive whole number.
+                    </small>
+
+                    <span class="input-error"
+                          id="ageError">
+                    </span>
+
+                </div>
+
+
+                <!-- INCOME -->
+
+                <div class="form-group">
+
+                    <label for="income">
+                        Annual Income
+                    </label>
+
+                    <div class="input-wrapper currency-wrapper">
+
+                        <span class="input-prefix">
+                            ₹
+                        </span>
+
+                        <input
+                            type="text"
+                            id="income"
+                            name="income"
+                            class="currency-input"
+                            placeholder="e.g. 6,00,000"
+                            inputmode="numeric"
+                            autocomplete="off"
+                            required>
+
+                    </div>
+
+                    <small>
+                        Enter a positive annual income.
+                    </small>
+
+                    <span class="input-error"
+                          id="incomeError">
+                    </span>
+
+                </div>
+
+
+                <!-- EMPLOYMENT STATUS -->
+
+                <div class="form-group">
+
+                    <label for="emp_status">
+                        Employment Status
+                    </label>
+
+                    <select
+                        id="emp_status"
+                        name="emp_status"
+                        required>
+
+                        <option value="" selected disabled>
+                            Select employment status
+                        </option>
+
+                        <!--
+                            IMPORTANT:
+                            Make sure these values match
+                            your model's training encoding.
+                        -->
+
+                        <option value="0">
+                            Unemployed
+                        </option>
+
+                        <option value="1">
+                            Self-Employed
+                        </option>
+
+                        <option value="2">
+                            Part-Time
+                        </option>
+
+                        <option value="3">
+                            Full-Time
+                        </option>
+
+                    </select>
+
+                    <small>
+                        Select the applicant's employment status.
+                    </small>
+
+                    <span class="input-error"
+                          id="empStatusError">
+                    </span>
+
+                </div>
+
+
+                <!-- MARITAL STATUS -->
+
+                <div class="form-group">
+
+                    <label for="marital">
+                        Marital Status
+                    </label>
+
+                    <select
+                        id="marital"
+                        name="marital"
+                        required>
+
+                        <option value="" selected disabled>
+                            Select marital status
+                        </option>
+
+                        <!--
+                            IMPORTANT:
+                            Make sure these values match
+                            your model's training encoding.
+                        -->
+
+                        <option value="0">
+                            Single
+                        </option>
+
+                        <option value="1">
+                            Married
+                        </option>
+
+                        <option value="2">
+                            Divorced
+                        </option>
+
+                        <option value="3">
+                            Widowed
+                        </option>
+
+                    </select>
+
+                    <small>
+                        Select the applicant's marital status.
+                    </small>
+
+                    <span class="input-error"
+                          id="maritalError">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOAN INFORMATION -->
+
+        <div class="form-card">
+
+            <div class="form-card-header">
+
+                <div class="form-section-icon">
+                    ₹
+                </div>
+
+                <div>
+                    <h3>
+                        Loan Information
+                    </h3>
+
+                    <p>
+                        Details about the requested loan
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <!-- LOAN AMOUNT -->
+
+                <div class="form-group">
+
+                    <label for="loan_amt">
+                        Loan Amount
+                    </label>
+
+                    <div class="input-wrapper currency-wrapper">
+
+                        <span class="input-prefix">
+                            ₹
+                        </span>
+
+                        <input
+                            type="text"
+                            id="loan_amt"
+                            name="loan_amt"
+                            class="currency-input"
+                            placeholder="e.g. 5,00,000"
+                            inputmode="numeric"
+                            autocomplete="off"
+                            required>
+
+                    </div>
+
+                    <small>
+                        Enter a positive loan amount.
+                    </small>
+
+                    <span class="input-error"
+                          id="loanAmtError">
+                    </span>
+
+                </div>
+
+
+                <!-- LOAN TERM -->
+
+                <div class="form-group">
+
+                    <label for="loan_term">
+                        Loan Term
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="number"
+                            id="loan_term"
+                            name="loan_term"
+                            placeholder="e.g. 60"
+                            min="1"
+                            step="1"
+                            inputmode="numeric"
+                            required>
+
+                        <span class="input-suffix">
+                            months
+                        </span>
+
+                    </div>
+
+                    <small>
+                        Enter the loan duration in months.
+                    </small>
+
+                    <span class="input-error"
+                          id="loanTermError">
+                    </span>
+
+                </div>
+
+
+                <!-- CREDIT SCORE -->
+
+                <div class="form-group">
+
+                    <label for="credit">
+                        Credit Score
+                    </label>
+
+                    <input
+                        type="number"
+                        id="credit"
+                        name="credit"
+                        placeholder="300 - 900"
+                        min="300"
+                        max="900"
+                        step="1"
+                        inputmode="numeric"
+                        required>
+
+                    <small>
+                        Credit score must be between 300 and 900.
+                    </small>
+
+                    <span class="input-error"
+                          id="creditError">
+                    </span>
+
+                </div>
+
+
+                <!-- PREVIOUS DEFAULTS -->
+
+                <div class="form-group">
+
+                    <label for="prev_defaults">
+                        Previous Defaults
+                    </label>
+
+                    <input
+                        type="number"
+                        id="prev_defaults"
+                        name="prev_defaults"
+                        placeholder="e.g. 0"
+                        min="0"
+                        step="1"
+                        inputmode="numeric"
+                        required>
+
+                    <small>
+                        Enter zero or a positive whole number.
+                    </small>
+
+                    <span class="input-error"
+                          id="prevDefaultsError">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <div class="form-submit-area">
+
+            <div class="secure-note">
+
+                <span>✓</span>
+
+                Please verify all information before submitting.
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-primary submit-btn">
+
+                Analyze Loan Risk
+
+                <span class="button-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}

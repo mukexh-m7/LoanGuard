@@ -1,0 +1,387 @@
+{% extends "base.html" %}
+
+{% block title %}
+How It Works - LoanGuard
+{% endblock %}
+
+{% block content %}
+
+<section class="inner-page">
+
+    <div class="inner-hero">
+
+        <span class="section-label">
+            THE ML PIPELINE
+        </span>
+
+        <h1>
+            How LoanGuard works
+        </h1>
+
+        <p>
+            From applicant information to an explainable
+            loan default prediction, LoanGuard follows a
+            simple Machine Learning workflow.
+        </p>
+
+    </div>
+
+
+    <!-- WORKFLOW -->
+
+<div class="workflow-container">
+
+    <!-- STEP 01 -->
+
+    <div class="workflow-step">
+
+        <div class="workflow-top">
+
+            <div class="workflow-number">
+                01
+            </div>
+
+            <div class="workflow-icon">
+                👤
+            </div>
+
+        </div>
+
+        <div class="workflow-content">
+
+            <span>INPUT</span>
+
+            <h3>
+                Customer & Loan Data
+            </h3>
+
+            <p>
+                The user provides customer and loan information
+                through the prediction form.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONNECTOR -->
+
+    <div class="workflow-connector">
+        <span></span>
+    </div>
+
+
+    <!-- STEP 02 -->
+
+    <div class="workflow-step">
+
+        <div class="workflow-top">
+
+            <div class="workflow-number">
+                02
+            </div>
+
+            <div class="workflow-icon">
+                ⚙
+            </div>
+
+        </div>
+
+        <div class="workflow-content">
+
+            <span>PROCESSING</span>
+
+            <h3>
+                Feature Preparation
+            </h3>
+
+            <p>
+                Submitted values are converted into the numerical
+                format expected by the trained model.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONNECTOR -->
+
+    <div class="workflow-connector">
+        <span></span>
+    </div>
+
+
+    <!-- STEP 03 -->
+
+    <div class="workflow-step featured">
+
+        <div class="workflow-top">
+
+            <div class="workflow-number">
+                03
+            </div>
+
+            <div class="workflow-icon">
+                ✦
+            </div>
+
+        </div>
+
+        <div class="workflow-content">
+
+            <span>ML MODEL</span>
+
+            <h3>
+                Decision Tree
+            </h3>
+
+            <p>
+                The trained model evaluates the prepared features
+                and determines the predicted default class.
+            </p>
+
+            <div class="model-chip">
+                Scikit-learn
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONNECTOR -->
+
+    <div class="workflow-connector">
+        <span></span>
+    </div>
+
+
+    <!-- STEP 04 -->
+
+    <div class="workflow-step">
+
+        <div class="workflow-top">
+
+            <div class="workflow-number">
+                04
+            </div>
+
+            <div class="workflow-icon">
+                ◈
+            </div>
+
+        </div>
+
+        <div class="workflow-content">
+
+            <span>OUTPUT</span>
+
+            <h3>
+                Risk Classification
+            </h3>
+
+            <p>
+                LoanGuard determines whether the application is
+                predicted to default or not default.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONNECTOR -->
+
+    <div class="workflow-connector">
+        <span></span>
+    </div>
+
+
+    <!-- STEP 05 -->
+
+    <div class="workflow-step">
+
+        <div class="workflow-top">
+
+            <div class="workflow-number">
+                05
+            </div>
+
+            <div class="workflow-icon">
+                💡
+            </div>
+
+        </div>
+
+        <div class="workflow-content">
+
+            <span>EXPLANATION</span>
+
+            <h3>
+                Risk Insights
+            </h3>
+
+            <p>
+                Relevant prediction factors are displayed to make
+                the final result easier to understand.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <!-- FEATURES -->
+
+    <section class="feature-section">
+
+        <div class="section-heading centered">
+
+            <span class="section-label">
+                MODEL INPUTS
+            </span>
+
+            <h2>
+                Factors used for prediction
+            </h2>
+
+            <p>
+                LoanGuard evaluates nine customer and loan-related
+                attributes.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <span>01</span>
+                <strong>Gender</strong>
+                <p>Applicant demographic information.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>02</span>
+                <strong>Age</strong>
+                <p>Applicant age in years.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>03</span>
+                <strong>Income</strong>
+                <p>Applicant income information.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>04</span>
+                <strong>Loan Amount</strong>
+                <p>Requested loan amount.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>05</span>
+                <strong>Loan Term</strong>
+                <p>Duration of the requested loan.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>06</span>
+                <strong>Credit Score</strong>
+                <p>Applicant credit profile.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>07</span>
+                <strong>Employment</strong>
+                <p>Employment status information.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>08</span>
+                <strong>Marital Status</strong>
+                <p>Applicant marital status.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>09</span>
+                <strong>Previous Defaults</strong>
+                <p>Historical default information.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PREDICTION CLASSES -->
+
+    <section class="classes-section">
+
+        <div class="section-heading centered">
+
+            <span class="section-label">
+                MODEL OUTPUT
+            </span>
+
+            <h2>
+                Prediction Classes
+            </h2>
+
+        </div>
+
+
+        <div class="class-grid">
+
+            <div class="class-card class-safe">
+
+                <div class="class-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <h3>
+                        Defaulted: No
+                    </h3>
+
+                    <p>
+                        The model predicts a lower likelihood
+                        of loan default based on the supplied
+                        features.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="class-card class-risk">
+
+                <div class="class-icon">
+                    !
+                </div>
+
+                <div>
+                    <h3>
+                        Defaulted: Yes
+                    </h3>
+
+                    <p>
+                        The model predicts a higher likelihood
+                        of loan default based on the supplied
+                        features.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}
+Prediction Result - LoanGuard
+{% endblock %}
+
+{% block content %}
+
+<section class="result-page">
+
+    <div class="result-container">
+
+        <div class="result-header">
+
+            <span class="section-label">
+                MODEL PREDICTION COMPLETE
+            </span>
+
+            <h1>
+                Loan Risk Assessment
+            </h1>
+
+            <p>
+                LoanGuard has analyzed the submitted customer
+                and loan information.
+            </p>
+
+        </div>
+
+
+        <!-- RESULT CARD -->
+
+        <div class="result-card">
+
+            <div class="result-card-top">
+
+                <div class="result-icon {{ risk_class }}">
+                    ✓
+                </div>
+
+                <div class="result-content">
+
+                    <span class="result-label">
+                        PREDICTION
+                    </span>
+
+                    <h2>
+                        {{ default_status }}
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="risk-message {{ risk_class }}">
+                {{ risk_message }}
+            </p>
+
+        </div>
+
+
+        <!-- EXPLANATION -->
+
+        <div class="explanation-card">
+
+            <div class="explanation-header">
+
+                <div class="explanation-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <span class="section-label">
+                        MODEL EXPLANATION
+                    </span>
+
+                    <h2>
+                        Why this prediction?
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            {% if reasons %}
+
+            <div class="reason-list">
+
+                {% for reason in reasons %}
+
+                <div class="reason-item">
+
+                    <div class="reason-number">
+                        {{ loop.index }}
+                    </div>
+
+                    <p>
+                        {{ reason }}
+                    </p>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-reasons">
+
+                <p>
+                    No additional risk factors were provided
+                    for this prediction.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="result-actions">
+
+            <a href="/" class="btn btn-primary">
+                ← Analyze Another Loan
+            </a>
+
+            <a href="/how-it-works" class="btn btn-secondary">
+                Understand the Model
+            </a>
+
+        </div>
+
+
+        <div class="result-disclaimer">
+
+            <span>ⓘ</span>
+
+            LoanGuard is a portfolio Machine Learning project.
+            Predictions are intended for demonstration purposes
+            and should not be used as the sole basis for financial decisions.
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
